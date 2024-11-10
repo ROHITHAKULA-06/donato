@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shortest Path Finder</title>
+  <style>
+    body { font-family: Arial, sans-serif; display: flex; justify-content: center; padding-top: 50px; }
+    .container { text-align: center; }
+    input, button { margin: 10px; padding: 8px; font-size: 16px; }
+    #result { margin-top: 20px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Shortest Path Finder</h1>
+    <form id="pathForm">
+      <label>Start Location (City or "latitude,longitude"):</label>
+      <input type="text" id="start" required>
+      <label>End Location (City or "latitude,longitude"):</label>
+      <input type="text" id="end" required>
+      <button type="submit">Find Shortest Path</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <!-- Link to JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>

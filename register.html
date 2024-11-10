@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity Registration - Donato</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF1DB;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #88C273;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 2em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #88C273;
+        }
+        .form-group {
+            margin-bottom: 1.5em;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.7em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .submit-button {
+            width: 100%;
+            padding: 1em;
+            font-size: 1em;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #218838;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><a href="index.html" style="color:white;text-decoration:none;">Donato</a></h1>
+    <p>Register Your Charity with Us</p>
+</header>
+
+<div class="container">
+    <h2>Charity Registration Form</h2>
+    <form id="charity-form" onsubmit="return validateForm()">
+        <div class="form-group">
+            <label for="charity-name">Charity Name</label>
+            <input type="text" id="charity-name" name="charityName" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <small class="error" id="emailError"></small>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Charity Description</label>
+            <textarea id="description" name="description" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-button">Register Charity</button>
+    </form>
+</div>
+
+<script>
+    // Function to save charity data to localStorage
+    function registerCharity() {
+        // Collecting form data
+        const charityName = document.getElementById('charityName').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const address = document.getElementById('address').value;
+        const description = document.getElementById('description').value;
+        const registeredAt = new Date().toISOString();
+
+        // Charity object
+        const newCharity = {
+            charityName,
+            email,
+            phone,
+            address,
+            description,
+            registeredAt
+        };
+
+        // Retrieve the existing list from localStorage or create an empty array
+        const charities = JSON.parse(localStorage.getItem('charities')) || [];
+
+        // Add the new charity to the array
+        charities.push(newCharity);
+
+        // Save the updated array back to localStorage
+        localStorage.setItem('charities', JSON.stringify(charities));
+
+        alert('Charity registered successfully!');
+        
+        // Clear the form
+        document.getElementById('charityForm').reset();
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Food Items - Farm Connect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF1DB;
+            color: #333;
+        }
+        header {
+            background-color: #88C273;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 2em;
+        }
+        .food-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 1em;
+        }
+        .food-item h3 {
+            margin: 0;
+        }
+        .food-item select, .food-item button {
+            padding: 0.5em;
+            font-size: 1em;
+        }
+        .donate-button {
+            background-color: #28a745;
+            color: white;
+            padding: 0.5em 1em;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .donate-button:hover {
+            background-color: #218838;
+        }
+div.b {
+  text-align: right;
+}
+.remove-button {
+            background-color: #dc3545;
+        }
+        .remove-button:hover {
+            background-color: #c82333;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><a href="index.html" style="color:white;text-decoration:none;">Donato</a></h1>
+    <p>Select food items and quantities to donate to those in need</p>
+</header>
+
+<div class="container">
+    <!-- Food Items List -->
+    <div class="food-item">
+        <h3>Rice</h3>
+        <select id="rice-quantity">
+            <option value="1kg">1 kg</option>
+	    <option value="2kg">2 kg</option>
+	    <option value="3kg">3 kg</option>
+	    <option value="4kg">4 kg</option>
+            <option value="5kg">5 kg</option>
+	    <option value="6kg">6 kg</option>
+	    <option value="7kg">7 kg</option>
+	    <option value="8kg">8 kg</option>
+	    <option value="9kg">9 kg</option>
+            <option value="10kg">10 kg</option>
+        </select>
+        <button class="donate-button" onclick="addToDonation('Rice', 'rice-quantity')">Add to Donation</button>
+    </div>
+
+    <div class="food-item">
+        <h3>Wheat</h3>
+        <select id="wheat-quantity">
+            
+            <option value="1kg">1 kg</option>
+	    <option value="2kg">2 kg</option>
+	    <option value="3kg">3 kg</option>
+	    <option value="4kg">4 kg</option>
+            <option value="5kg">5 kg</option>
+	    <option value="6kg">6 kg</option>
+	    <option value="7kg">7 kg</option>
+	    <option value="8kg">8 kg</option>
+	    <option value="9kg">9 kg</option>
+            <option value="10kg">10 kg</option>
+	</select>
+        <button class="donate-button" onclick="addToDonation('wheat', 'wheat-quantity')">Add to Donation</button>
+    </div>
+
+    <div class="food-item">
+        <h3>Vegetables</h3>
+        <select id="vegetables-quantity">
+            
+            <option value="1kg">1 kg</option>
+	    <option value="2kg">2 kg</option>
+	    <option value="3kg">3 kg</option>
+	    <option value="4kg">4 kg</option>
+            <option value="5kg">5 kg</option>
+	    <option value="6kg">6 kg</option>
+	    <option value="7kg">7 kg</option>
+	    <option value="8kg">8 kg</option>
+	    <option value="9kg">9 kg</option>
+            <option value="10kg">10 kg</option>
+</select>
+        <button class="donate-button" onclick="addToDonation('vegetables', 'vegetables-quantity')">Add to Donation</button>
+    </div>
+
+    <div class="food-item">
+        <h3>Pulses</h3>
+        <select id="pulses-quantity">
+            
+            <option value="1kg">1 kg</option>
+	    <option value="2kg">2 kg</option>
+	    <option value="3kg">3 kg</option>
+	    <option value="4kg">4 kg</option>
+            <option value="5kg">5 kg</option>
+	    <option value="6kg">6 kg</option>
+	    <option value="7kg">7 kg</option>
+	    <option value="8kg">8 kg</option>
+	    <option value="9kg">9 kg</option>
+            <option value="10kg">10 kg</option>
+</select>
+        <button class="donate-button" onclick="addToDonation('pulses', 'pulses-quantity')">Add to Donation</button>
+    </div>
+
+    <div class="food-item">
+        <h3>Fruits</h3>
+        <select id="fruits-quantity">
+            
+            <option value="1kg">1 kg</option>
+	    <option value="2kg">2 kg</option>
+	    <option value="3kg">3 kg</option>
+	    <option value="4kg">4 kg</option>
+            <option value="5kg">5 kg</option>
+	    <option value="6kg">6 kg</option>
+	    <option value="7kg">7 kg</option>
+	    <option value="8kg">8 kg</option>
+	    <option value="9kg">9 kg</option>
+            <option value="10kg">10 kg</option>
+        </select>
+        <button class="donate-button" onclick="addToDonation('fruits', 'fruits-quantity')">Add to Donation</button>
+    </div>
+    <div class="food-item">
+	<p>if none then enter the food your contributing</p>
+	<input type="text" id="type_of_food">
+	<h3>enter the quantity</h3>
+        <select id="quantity">
+            
+            <option value="1kg">1 kg</option>
+	    <option value="2kg">2 kg</option>
+	    <option value="3kg">3 kg</option>
+	    <option value="4kg">4 kg</option>
+            <option value="5kg">5 kg</option>
+	    <option value="6kg">6 kg</option>
+	    <option value="7kg">7 kg</option>
+	    <option value="8kg">8 kg</option>
+	    <option value="9kg">9 kg</option>
+            <option value="10kg">10 kg</option>
+        </select>
+        <button class="donate-button" onclick="addToDonation('type_of_food', 'quantity')">Add to Donation</button>
+    </div>
+<!-- Donation List -->
+    <div class="donation-list" id="donation-list">
+        <h2>Selected Donations</h2>
+        <div id="donation-items"></div>
+    </div>
+<div class="b">
+<a href="search.html"><img src="next.png"></a>
+</div>
+</div>
+<script>
+    let donationList = [];
+
+    function addToDonation(itemName, quantityId) {
+        const quantity = document.getElementById(quantityId).value;
+
+        const existingItem = donationList.find(item => item.name === itemName);
+        
+        if (existingItem) {
+            existingItem.quantity = quantity;
+        } else {
+            donationList.push({ name: itemName, quantity: quantity });
+        }
+
+        // Save updated donationList to localStorage
+        localStorage.setItem("donationList", JSON.stringify(donationList));
+
+        displayDonationList();
+    }
+
+ function removeFromDonation(itemName) {
+        // Filter out the item to remove
+        donationList = donationList.filter(item => item.name !== itemName);
+
+        // Update localStorage
+        localStorage.setItem("donationList", JSON.stringify(donationList));
+
+        displayDonationList();
+    }
+    function displayDonationList() {
+        const donationItemsDiv = document.getElementById("donation-items");
+        donationItemsDiv.innerHTML = "";
+
+        donationList.forEach(item => {
+            const donationItemDiv = document.createElement("div");
+            donationItemDiv.className = "donation-item";
+            donationItemDiv.textContent = `${item.name}: ${item.quantity}`;
+            donationItemsDiv.appendChild(donationItemDiv);
+	    // Create and add the Remove button
+            const removeButton = document.createElement("button");
+            removeButton.className = "remove-button";
+            removeButton.textContent = "Remove";
+            removeButton.onclick = () => removeFromDonation(item.name);
+
+            donationItemDiv.appendChild(removeButton);
+            donationItemsDiv.appendChild(donationItemDiv);
+
+        });
+    }
+
+    // Load donation list from localStorage if it exists
+    window.onload = function() {
+        const storedDonationList = localStorage.getItem("donationList");
+        if (storedDonationList) {
+            donationList = JSON.parse(storedDonationList);
+            displayDonationList();
+        }
+    }
+</script>
+</body>
+</html>
